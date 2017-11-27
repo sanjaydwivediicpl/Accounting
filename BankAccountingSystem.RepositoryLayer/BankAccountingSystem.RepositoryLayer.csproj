@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Class1.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BankAccountingSystem.DataAccessLayer\BankAccountingSystem.DataAccessLayer.csproj" />
+    <ProjectReference Include="..\BankAccountingSystem.EntityLayer\BankAccountingSystem.EntityLayer.csproj" />
+  </ItemGroup>
+
+</Project>
