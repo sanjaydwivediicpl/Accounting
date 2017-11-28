@@ -20,9 +20,30 @@ namespace BankAccountingSystem.RepositoryLayer
             this.dbContext = context;
         }
 
+        public int Create(Customer customer)
+        {
+            int returnValue= Convert.ToInt32(this.dbContext.Customers.Add(customer).State);
+            this.dbContext.SaveChanges();
+            return returnValue;
+        }
+
+        public int Delete(Customer customer)
+        {
+            int returnValue = Convert.ToInt32(this.dbContext.Customers.Remove(customer).State);
+            this.dbContext.SaveChanges();
+            return returnValue;
+        }
+
         public IEnumerable<Customer> List()
         {
             return this.dbContext.Customers.ToList();
+        }
+
+        public int Update(Customer customer)
+        {
+            int returnValue = Convert.ToInt32(this.dbContext.Customers.Update(customer).State);
+            this.dbContext.SaveChanges();
+            return returnValue;
         }
     }
 }

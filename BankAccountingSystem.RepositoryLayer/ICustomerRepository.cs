@@ -11,5 +11,11 @@ namespace BankAccountingSystem.RepositoryLayer
     public interface ICustomerRepository
     {
         IEnumerable<Customer> List();
+
+        int Create(Customer customer);
+
+        int Update(Customer customer);
+
+        int Delete(Customer customer);
     }
 }
