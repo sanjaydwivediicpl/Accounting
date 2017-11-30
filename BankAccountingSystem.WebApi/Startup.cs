@@ -27,9 +27,11 @@
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors();
             services.AddMvc();
             services.AddDbContext<BankDbContext>(options => options.UseSqlServer("Server=MININT-2DIUJMI;Database=BankAccountingSystem;Trusted_Connection=True"));
             services.AddScoped<ICustomerRepository, CustomerRepository>();
+
             // Register the Swagger generator, defining one or more Swagger documents
             services.AddSwaggerGen(c =>
             {
@@ -46,6 +48,12 @@
             }
 
             app.UseMvc();
+            app.UseCors(builder =>
+            builder
+            .AllowAnyOrigin()
+               .AllowAnyHeader()
+               .AllowAnyMethod());
+
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
 

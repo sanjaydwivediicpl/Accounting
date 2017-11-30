@@ -4,10 +4,12 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
+    using System.Web.Http.Cors;
     using BankAccountingSystem.EntityLayer;
     using BankAccountingSystem.RepositoryLayer;
     using Microsoft.AspNetCore.Mvc;
 
+    [EnableCors("*", "*", "*")]
     [Route("api/[controller]")]
     public class ValuesController : Controller
     {
@@ -20,10 +22,10 @@
 
         // GET api/values
         [HttpGet]
-        public IEnumerable<Customer> Get()
+        public IEnumerable<string> Get()
         {
-            return this.customerRepository.List();
-                ////new string[] { "value1", "value2" };
+            //return this.customerRepository.List();
+             return new string[] { "value1", "value2" };
         }
 
         // GET api/values/5

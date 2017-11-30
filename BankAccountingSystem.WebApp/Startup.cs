@@ -26,7 +26,7 @@ namespace BankAccountingSystem.WebApp
                 await next();
                 if (context.Response.StatusCode == 404 &&
                     !Path.HasExtension(context.Request.Path.Value) &&
-                    !context.Request.Path.Value.StartsWith("http://localhost:5031/api/values"))
+                    !context.Request.Path.Value.StartsWith("/api/"))
                 {
                     context.Request.Path = "./src/index.html";
                     await next();
